@@ -4,11 +4,10 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Bookmark extends Model {
-    
     static associate(models) {
-      Bookmark.belongsTo(models.Customer, {
+      Bookmark.belongsTo(models.User, {
         foreignKey: "UserId"
-      }), Bookmark.belongsTo(models.Product, {
+      }), Bookmark.belongsTo(models.Book, {
         foreignKey: "BookId"
       });
     }

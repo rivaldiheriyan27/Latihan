@@ -4,7 +4,6 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
-   
     static associate(models) {
       Book.belongsToMany(models.User,{
         through:"Bookmarks",
