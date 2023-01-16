@@ -31,5 +31,6 @@
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2",
     "supertest": "^6.3.3"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
