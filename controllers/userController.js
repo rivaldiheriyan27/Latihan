@@ -42,7 +42,7 @@ class userController{
                 }
             });
 
-            console.log(user)
+            // console.log(user, "ini data user")
 
             if (!user) {
                 throw new Error("Email or Password is invalid");
@@ -52,6 +52,8 @@ class userController{
                 password,
                 user.password
             )
+            
+            console.log(validatePassword, "ini validasi password")
 
             if (!validatePassword) {
                 throw new Error(`Email or Password is invalid`);
@@ -60,6 +62,8 @@ class userController{
             const payload = {
                 id: user.id,
             };
+
+            console.log(payload, " ini di login")
 
             const token = signatureJwt(payload,secretKey);
 

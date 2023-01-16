@@ -11,4 +11,5 @@ npx sequelize-cli db:seed --seed 20230109205114-seedUser
 npx sequelize-cli db:seed --seed 20230109205114-seedBook
 npx sequelize-cli db:seed --seed 20230109205114-seedBookmark
 
-
+//Tambah kolom
+npx sequelize-cli migration:generate --name 'status'

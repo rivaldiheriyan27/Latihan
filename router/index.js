@@ -15,6 +15,11 @@ router.post("/register", userController.register)
 router.use(authentication);
 
 router.get("/" , bookLibrary.bookData)
+router.get("/history", bookLibrary.history)
+router.post("/borrow/:id", bookLibrary.borrowBook)
+
+
+
 router.post("/addBook",authorizationAdmin, bookLibrary.addBook)
 
 
