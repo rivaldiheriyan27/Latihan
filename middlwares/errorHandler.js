@@ -26,7 +26,7 @@ const errorHandler = (err,req,res,next) =>{
         (code = 403), (message = "You do not have access");
     } else if (err === "BadRequest") {
         (code = 400), (message = "Params id must an integer");
-    } else if (err === "NotFound") {
+    } else if (err === "NotFound" || err === "Not Found The Book") {
         (code = 404), (message = "Not Found");
     } else if (err === "InvalidToken" || err === "JsonWebTokenError") {
         (code = 401), (message = "Access Token is Invalid");

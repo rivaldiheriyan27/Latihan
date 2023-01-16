@@ -17,9 +17,9 @@ router.use(authentication);
 router.get("/" , bookLibrary.bookData)
 router.get("/history", bookLibrary.history)
 router.post("/borrow/:id", bookLibrary.borrowBook)
+router.post("/return/:id", bookLibrary.returnBook)
 
-
-
+router.get("/listProduk", authorizationAdmin, bookLibrary)
 router.post("/addBook",authorizationAdmin, bookLibrary.addBook)
 
 

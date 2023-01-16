@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
         model: "Book",
         key: "id"
       }},
-    dateTime: DataTypes.DATE
+    dateTime: DataTypes.DATE,
+    status: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Bookmark',
