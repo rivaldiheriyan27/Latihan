@@ -1,18 +1,18 @@
-const {User, Book,Bookmark} = require("../models/index");
+const { User, Book, Bookmark } = require('../models/index')
 
-const authorizationAdmin = async(req,res,next) =>{
-    try{
-        const {id:adminid, role} = req.user;
-        
-        if(role !== "Admin"){
-            throw { name: "Forbidden" };
-        }
+const authorizationAdmin = async (req, res, next) => {
+  try {
+    const { id: adminid, role } = req.user
 
-        next()
-    }catch(err){
-        const { name } = err;
-        next(name)
+    if (role !== 'Admin') {
+      throw { name: 'Forbidden' }
     }
+
+    next()
+  } catch (err) {
+    const { name } = err
+    next(name)
+  }
 }
 
-module.exports = authorizationAdmin;
+module.exports = authorizationAdmin

@@ -1,64 +1,52 @@
-function namaVar(){
-    var a = 2;
-    var b = 4;
+function namaVar() {
+  var a = 2
+  var b = 4
 
-    var c = b - a
+  var c = b - a
 
+  console.log('ini adalah nilai a', a)
+  console.log('ini adlaah nilai b', b)
 
+  a = b
+  b = b - c
 
-    console.log("ini adalah nilai a" ,a) ;
-    console.log("ini adlaah nilai b" ,b );
+  console.log('ini adalah nilai terbaru a', a)
+  console.log('ini adlaah nilai terbaru b', b)
 
+  a -= b
+  b += a
+  a = -a + b
 
-    a = b
-    b = b - c
-
-
-
-    console.log("ini adalah nilai terbaru a" ,a) ;
-    console.log("ini adlaah nilai terbaru b" ,b );
-
-    a -= b;
-    b += a;
-    a = -(a) + b;
-
-    console.log("ini adalah nilai terbaru a" ,a) ;
-    console.log("ini adlaah nilai terbaru b" ,b );
-
+  console.log('ini adalah nilai terbaru a', a)
+  console.log('ini adlaah nilai terbaru b', b)
 }
 
 // namaVar();
 
-function terbalik(){
+function terbalik() {
+  let a = ''
+  let n = 5
 
-    let a = ""
-    let n = 5
-   
-    for ( let i = 1; i <= n; i++ ) {
-        // a += "*"
+  for (let i = 1; i <= n; i++) {
+    // a += "*"
 
-        for (let j = 0; j < n - i; j++) {
-            a += " "
-
-        }
-
-        for (let k = 0; k < i; k++) {
-            a += "*"
-
-        }
-
-        a += "\n"
-        
-
-        // if ( )
+    for (let j = 0; j < n - i; j++) {
+      a += ' '
     }
 
-    console.log(a);
+    for (let k = 0; k < i; k++) {
+      a += '*'
+    }
 
+    a += '\n'
 
+    // if ( )
+  }
+
+  console.log(a)
 }
 
-terbalik();
+terbalik()
 
 // function diamond() {
 // let n = 5;
@@ -97,9 +85,4 @@ terbalik();
 
 // diamond()
 
-function palindrom(){
-
-
-}
-
-
+function palindrom() {}

@@ -32,5 +32,8 @@
     "sequelize-cli": "^6.5.2",
     "supertest": "^6.3.3"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.3.1",
+  "devDependencies": {
+    "prettier": "^2.8.3"
+  }
 }

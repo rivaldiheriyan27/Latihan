@@ -1,14 +1,16 @@
-const jwt = require("jsonwebtoken")
-const secretKey = "akusayangdia"
+const jwt = require('jsonwebtoken')
+const secretKey = 'akusayangdia'
 
-function signatureJwt(payload,key){
-    return jwt.sign(payload,key)
+function signatureJwt(payload, key) {
+  return jwt.sign(payload, key)
 }
 
-function verifyJwt(token,key){
-    return jwt.verify(token,key)
+function verifyJwt(token, key) {
+  return jwt.verify(token, key)
 }
 
 module.exports = {
-    signatureJwt,verifyJwt,secretKey
+  signatureJwt,
+  verifyJwt,
+  secretKey,
 }
