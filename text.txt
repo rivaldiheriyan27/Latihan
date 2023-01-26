@@ -1,0 +1,44 @@
+Logic membuat aplikasi perpustakaan
+- Jadi member
+    - Register
+        : masukin email, password,nama
+            -Cek email apakah sudah terdaftar (SUDAH)
+            -Cek password minimal 8 huruf (SUDAH)
+    - login
+        : masukin email, password 
+            - Cek email ada atau engga di database 
+            - Cek password sama atau engga
+            - Cek penntuan ADmin atau bukan (Authentication)
+
+    - Admin
+        -addBook
+            : Judul, author, kodeBuku(isbn)
+              - Masukin field dari Judul, author, isbn (sudah)
+              - Cek data apakah buku sudah ada (sudah)
+                - Kalau buku belum ada boleh simpen (sudah)
+                - Kalau udah ada error (sudah)
+
+        Table database
+        User : id(Pk), email, password, name , updatedAt, createdAt , deletedAt
+        Book : id(Pk), title , author, isbn,  updatedAt, createdAt , deletedAt
+        RentalBook : id(Pk), Userid, BookId, rentNumber, status, estimasiBalikin , actualBalikin(null pertama kali), updatedAt, createdAt , deletedAt
+        
+        -returnBook
+
+Step pinjem buku: 
+    -ambil buku 
+        -Cek apakah buku ada atau tidak (sudah)
+        -Cek apakah buku dipnjem orang lain atau tidak (sudah)
+            - kalau dipnjem error (Sudah)
+    -kasih tau deadLine (Sudah)
+    -Save database
+
+step balikin buku:
+    -Cari nomor peminjaman ada atau tidak
+        -Kalau engga ada balikin erorr(tidak meminjam)
+        -cek apakah actual isinya null atau tidak
+            -kalau tidak null sudah balikin
+    -kasi bukunya
+        -actual balikin disiinya jam sekarang
+    -save database
+    

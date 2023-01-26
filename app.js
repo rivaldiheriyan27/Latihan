@@ -12,10 +12,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", router);
 
-
-
-
-
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

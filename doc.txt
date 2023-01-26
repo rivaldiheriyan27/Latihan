@@ -1,6 +1,11 @@
-npx sequelize-cli model:generate --name User --attributes email:string,password:string,role:string,phoneNumber:integer,deadLine:date
-npx sequelize-cli model:generate --name Book --attributes title:string,author:string
-npx sequelize-cli model:generate --name Bookmark --attributes UserId:integer,BookId:integer,dateTime:date
+ User : id(Pk), email, password, name , updatedAt, createdAt , deletedAt
+        Book : id(Pk), title , author, isbn,  updatedAt, createdAt , deletedAt
+        RentalBook : id(Pk), Userid, BookId, rentNumber, status, estimasiBalikin , actualBalikin(null pertama kali), updatedAt, createdAt , deletedAt
+
+
+npx sequelize-cli model:generate --name User --attributes email:string,password:string,name:string,role:string,phoneNumber:integer
+npx sequelize-cli model:generate --name Book --attributes title:string,author:string,isbn:integer
+npx sequelize-cli model:generate --name RentalBook --attributes UserId:integer,BookId:integer,rentNumber:string,returnEstimate:date,actualEstimate:date
 
 npx sequelize-cli seed:generate --name 'seedUser'
 npx sequelize-cli seed:generate --name 'seedBook'

@@ -6,13 +6,31 @@ const {signatureJwt,verifyJwt, secretKey} = require("../helpers/jwt")
 class userController{
     static async register(req,res,next){
         try{
-            const {email, password,phoneNumber} = req.body
-            let dataInputRegister = await User.create({
-                email, 
+            const {email, password,phoneNumber,name} = req.body
+
+            let input = {
+                email,
                 password,
-                phoneNumber: `0${phoneNumber}` ,
-                deadLine : new Date()
+                phoneNumber:`0${phoneNumber}`,
+                name
+            }
+
+            console.log(input, "ini data Register")
+            
+
+            //Cek data apakah sudah ada email yang register atau belum
+
+            const checkDataUser = await User.findOne({
+                where:{
+                    email:email
+                }
             })
+
+            if(checkDataUser){
+                throw { name :"Email has been registered"}
+            }
+
+            const dataInputRegister = await User.create(input)
 
             const idToken = {
                 id: dataInputRegister.id
@@ -42,10 +60,9 @@ class userController{
                 }
             });
 
-            // console.log(user, "ini data user")
-
+            // Check data apakah ada usernya atau tidak
             if (!user) {
-                throw new Error("Email or Password is invalid");
+                throw {name :"Email or Password is invalid"};
             }
 
             const validatePassword = compareHash(
@@ -55,8 +72,10 @@ class userController{
             
             console.log(validatePassword, "ini validasi password")
 
+            // Check data apakah passwordnya sudah sama atau tidak
+
             if (!validatePassword) {
-                throw new Error(`Email or Password is invalid`);
+                throw { name : `Email or Password is invalid`};
             }
 
             const payload = {

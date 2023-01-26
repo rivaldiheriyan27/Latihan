@@ -15,14 +15,14 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      name: {
+        type: Sequelize.STRING
+      },
       role: {
         type: Sequelize.STRING
       },
       phoneNumber: {
         type: Sequelize.INTEGER
-      },
-      deadLine: {
-        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +31,9 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
       }
     });
   },
