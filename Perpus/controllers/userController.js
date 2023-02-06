@@ -20,9 +20,10 @@ class userController{
 
             //Cek data apakah sudah ada email yang register atau belum
 
-            const checkDataUser = await User.findOne({
+            const checkDataUser = await User.findOne({ // Penamaan harus spesifik contoh UserByEmailOPT
                 where:{
                     email:email
+                    // Kurang deletedAt is null
                 }
             })
 
@@ -57,6 +58,7 @@ class userController{
             const user = await User.findOne({
                 where:{
                     email:email,
+                    // Kurang deletedAt is null
                 }
             });
 
