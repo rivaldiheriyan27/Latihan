@@ -5,12 +5,12 @@
         "price": 20000
     },
     {
-        "nameFood": "Bang! Bang!",
+        "name": "Bang! Bang!",
         "picture": "https://i.ibb.co/R0v4FYb/Bang-Bang.jpg",
         "price": 22000
     },
     {
-        "nameFood": "Berry Gum",
+        "name": "Berry Gum",
         "picture": "https://i.ibb.co/FhzhSsf/Berry-Gum.jpg",
         "price": 20000
     }

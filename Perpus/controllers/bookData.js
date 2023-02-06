@@ -28,9 +28,6 @@ class bookLibrary{
         try{
             const {id} = req.params;
 
-            console.log()
-            console.log(id,"ini data param")
-
             const dataBook = await Book.findByPk(id,{
                 attributes:{
                     exclude: ["createdAt", "updatedAt"]
@@ -63,11 +60,14 @@ class bookLibrary{
 
             console.log(input,"data input")
 
+            // Apabila kolom deletedAt sudah disii anggap data sudah dihapus
+
             const checkBookDataisAlready = await Book.findOne({
                 where:{
                     title,
                     author,
                     isbn
+                    // Kurang deletedAt is null 
                 }
             })
 
@@ -163,6 +163,7 @@ class bookLibrary{
             }
             console.log(input, "ini data input")
 
+            // Kurang rapih Validasi harus ada diatas  dan salah urutan
             const checkDataBookHasAlreadyGivenJustOneTime = await RentalBook.findOne({
                 where:{
                     UserId:input.UserId,
@@ -197,6 +198,7 @@ class bookLibrary{
             const checkDataOrderRentNumber = await RentalBook.findOne({
                 where:{
                     rentNumber,
+                    // kurang deletedAT IS NULL
                 }
             })
             //    -Kalau engga ada balikin erorr(tidak meminjam)
@@ -207,6 +209,7 @@ class bookLibrary{
             //     -cek apakah actual isinya null atau tidak
             //         -kalau tidak null sudah balikin
             if(checkDataOrderRentNumber.status === "Done" || checkDataOrderRentNumber.status === "Late"){
+                // finite state machine ini membuat programer menjadi kesulitan kalau tidak hati2 dan salah paham 
                 throw { name : "Book has already give to LibraryMan"}
             }
 
@@ -217,7 +220,7 @@ class bookLibrary{
 
             let statusUser; 
 
-            if(checkDataOrderRentNumber.returnEstimate > hariIni){
+            if(checkDataOrderRentNumber.returnEstimate < hariIni){
                 statusUser = "Late"
             }else{
                 statusUser = "Done"

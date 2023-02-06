@@ -18,3 +18,25 @@ npx sequelize-cli db:seed --seed 20230109205114-seedBookmark
 
 //Tambah kolom
 npx sequelize-cli migration:generate --name 'status'
+
+
+
+// Restaurant 
+
+Table : numberTable, updatedAt, createdAt , deletedAt
+food: id,name, price, picture, updatedAt, createdAt , deletedAt
+Order : id, tableId, inVoiceNumber
+OrderDetail : id, foodId, quantity, price, totalPrice, OrderID
+
+yarn sequelize-cli model:generate --name Table --attributes numberTable:integer
+
+yarn sequelize-cli model:generate --name Food --attributes name:string,price:integer,picture:string
+
+yarn sequelize-cli model:generate --name Order --attributes tableId:integer,inVoiceNumber:string,totalPrice:integer
+
+yarn sequelize-cli model:generate --name OrderDetail --attributes foodId:integer,quantity:integer,price:integer,totalPrice:integer,OrderId:integer
+
+//sEED FOOD dan Table
+
+yarn sequelize-cli seed:generate --name 'seedFood'
+yarn sequelize-cli seed:generate --name 'seedTable'
